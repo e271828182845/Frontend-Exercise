@@ -1,3 +1,14 @@
+# Instructions
+
+Note: If you use nvm, you can use `nvm use` to set the node version needed.
+
+Available scripts:
+
++ `yarn install`
++ `yarn start` for development mode
++ `yarn build` to build dist version
++ `yarn test` to pass tests
+
 ## Frontend Exercise
 
 With the next markup, you must create an accordion (JS / CSS) show only the contents of a section at a time.
