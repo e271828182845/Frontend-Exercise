@@ -1,0 +1,66 @@
+@import '../../styles/vars';
+
+$this: '#{$ns}-Accordion';
+
+$Accordion-borderRadius:                    8px !default;
+$Accordion-sectionTitle-color:              $dark-green-1 !default;
+$Accordion-sectionTitle-backgroundColor:    $light-green-1 !default;
+
+$Accordion-sectionTitle-borderTop:          1px solid $light-green-2 !default;
+$Accordion-sectionTitle-borderBottom:       $Accordion-sectionTitle-borderTop !default;
+
+$Accordion-sectionContent-color:            $dark-grey-1 !default;
+$Accordion-sectionContent-backgroundColor:  $light-green-2 !default;
+$Accordion-sectionContent-transition:       all 0.25s ease-in-out !default;
+
+.#{$this} {
+    margin: 0 auto;
+    max-width: 550px;
+    overflow: hidden;
+
+    border-radius: $Accordion-borderRadius;
+
+    &-sectionTitle {
+        cursor: pointer;
+        padding: 8px 16px;
+
+        color: $Accordion-sectionTitle-color;
+        background-color: $Accordion-sectionTitle-backgroundColor;
+
+        &:not(:first-child) {
+            border-top: $Accordion-sectionTitle-borderTop;
+        }
+
+        &:not(:last-child) {
+            border-bottom: $Accordion-sectionTitle-borderBottom;
+        }
+
+        &.is-open + .#{$this}-sectionContent {
+            visibility: visible;
+            opacity: 1;
+            height: 60px;
+
+            p {
+                display: block;
+            }
+        }
+    }
+
+    &-sectionContent {
+        margin: 0;
+        opacity: 0;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+
+        color: $Accordion-sectionContent-color;
+        background-color: $Accordion-sectionContent-backgroundColor;
+
+        transition: $Accordion-sectionContent-transition;
+
+        & > p {
+            display: none;
+            margin: 16px;
+        }
+    }
+}
